@@ -18,6 +18,9 @@ class Genre
     genre = self.new(name)
     genre.save
     genre
+
+    # Short version
+    # self.new(name).tap { |genre| genre.save }
   end
 
   def self.all
