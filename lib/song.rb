@@ -28,6 +28,9 @@ class Song
     song = self.new( name )
     song.save
     song
+
+    # Shorter version
+    # self.new( name ).tap { |song| song.save }
   end
 
   # new song from mp3 file formatted "Thundercat - For Love I Come - dance.mp3"
