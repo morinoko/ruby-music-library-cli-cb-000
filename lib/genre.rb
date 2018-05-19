@@ -1,7 +1,8 @@
 class Genre
   extend Concerns::Findable
 
-  attr_accessor :name, :songs
+  attr_accessor :name
+  attr_reader :songs
 
   @@all = []
 
@@ -18,6 +19,9 @@ class Genre
     genre = self.new(name)
     genre.save
     genre
+
+    # Short version
+    # self.new(name).tap { |genre| genre.save }
   end
 
   def self.all
