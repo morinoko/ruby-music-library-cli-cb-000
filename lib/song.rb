@@ -12,6 +12,16 @@ class Song
     self.genre = genre if genre
   end
 
+  def artist=( artist )
+    @artist = artist # need this or code will break!
+    artist.add_song( self )
+  end
+
+  def genre=( genre )
+    @genre = genre
+    genre.songs << self unless genre.songs.include?( self )
+  end
+
   def save
     @@all << self
   end
@@ -46,16 +56,6 @@ class Song
   def self.create_from_filename( filename )
     song = self.new_from_filename( filename )
     song.save
-  end
-
-  def artist=( artist )
-    @artist = artist # need this or code will break!
-    artist.add_song( self )
-  end
-
-  def genre=( genre )
-    @genre = genre
-    genre.songs << self unless genre.songs.include?( self )
   end
 
 end
